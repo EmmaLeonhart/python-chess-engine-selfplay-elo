@@ -2,8 +2,9 @@
 table and quiescence search.
 
 Move ordering: transposition-table move, then captures and promotions by
-MVV-LVA (most valuable victim, then least valuable attacker), then quiet
-moves.
+MVV-LVA (most valuable victim, then least valuable attacker), then the two
+killer moves of this ply (quiet moves that last caused a cutoff here), then
+the other quiet moves. Check extension: one ply deeper when in check.
 """
 import time
 
@@ -66,6 +67,7 @@ class Searcher:
         self.deadline = start + movetime if movetime else float("inf")
         self.stop = False
         self.nodes = 0
+        self.killers = [[0, 0] for _ in range(130)]
         if len(self.tt) > TT_MAX:
             self.tt.clear()
         legal = board.legal_moves()
@@ -146,6 +148,10 @@ class Searcher:
         alpha0 = alpha
         legal = 0
         caps.sort(key=lambda m: capture_key(board, m), reverse=True)
+        k0, k1 = killers = self.killers[ply]
+        if k0 in quiets or k1 in quiets:
+            front = [k for k in (k0, k1) if k and k in quiets]
+            quiets = front + [m for m in quiets if m != k0 and m != k1]
         for m in first + caps + quiets:
             b.make(m)
             if b.attacked(kings[ki], -us):
@@ -162,6 +168,10 @@ class Searcher:
                 if score > alpha:
                     alpha = score
                     if alpha >= beta:
+                        if (not board[(m >> 7) & 127] and not (m >> 14) & 7
+                                and (m >> 17) != FLAG_EP and m != k0):
+                            killers[1] = k0
+                            killers[0] = m
                         break
         if not legal:
             return -MATE + ply if in_check else 0
