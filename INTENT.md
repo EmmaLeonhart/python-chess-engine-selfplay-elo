@@ -60,8 +60,17 @@ The brief says: "This is a long project; keep going after each round."
 
 ## Open questions
 
-- None blocking. If the user turns up, worth confirming the "clear margin"
-  rule above.
+- **NEEDS-DECISION (user):** the round 1 match was stopped by Claude Code at
+  09:31 PST because the system was critically low on memory, with 39 of 200
+  games recorded (+22 =8 -9, Elo +120 [-8, +229]). Claude Code's note says
+  not to restart it unasked. The user decides whether to restart (the runner
+  resumes from `results/round01/games.jsonl`) and whether to cut memory use
+  first (smaller transposition table, fewer parallel games). Rounds 2 on
+  wait behind this, since each is played against the round 1 winner.
+- At 09:48 PST, 23 `python.exe` processes were still running, probably
+  orphaned engine processes from the stopped match. Not killed: the user's
+  instructions say not to stop running things unasked.
+- If the user turns up, worth confirming the "clear margin" rule above.
 
 ## Confidence
 

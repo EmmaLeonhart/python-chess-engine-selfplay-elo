@@ -1,0 +1,60 @@
+0 games already recorded, 200 to play
+[     56s] game 6: 0-1 (checkmate, 64 plies)  |  1 games  +1 =0 -0  score 100.0%  Elo +2400.0 [-inf, +inf] (95%, pairs [0, 0, 0, 0, 0])  not clear
+[     74s] game 4: 0-1 (checkmate, 84 plies)  |  2 games  +2 =0 -0  score 100.0%  Elo +2400.0 [+2400.0, +2400.0] (95%, pairs [0, 0, 0, 0, 0])  CLEAR WIN
+[     78s] game 3: 1-0 (checkmate, 87 plies)  |  3 games  +3 =0 -0  score 100.0%  Elo +2400.0 [+2400.0, +2400.0] (95%, pairs [0, 0, 0, 0, 1])  CLEAR WIN
+[     80s] game 2: 1-0 (checkmate, 93 plies)  |  4 games  +3 =0 -1  score 75.0%  Elo +190.8 [-126.4, +2400.0] (95%, pairs [0, 0, 0, 0, 1])  not clear
+[     87s] game 8: 1-0 (checkmate, 93 plies)  |  5 games  +3 =0 -2  score 60.0%  Elo +70.4 [-274.7, +2400.0] (95%, pairs [0, 0, 0, 0, 1])  not clear
+[    104s] game 1: 1-0 (checkmate, 115 plies)  |  6 games  +4 =0 -2  score 66.7%  Elo +120.4 [-67.9, +2400.0] (95%, pairs [0, 0, 1, 0, 1])  not clear
+[    128s] game 11: 1-0 (checkmate, 57 plies)  |  7 games  +5 =0 -2  score 71.4%  Elo +159.2 [-67.9, +2400.0] (95%, pairs [0, 0, 1, 0, 1])  not clear
+[    138s] game 7: 0-1 (checkmate, 150 plies)  |  8 games  +5 =0 -3  score 62.5%  Elo +88.7 [-561.2, +561.2] (95%, pairs [1, 0, 1, 0, 1])  not clear
+[    141s] game 12: 0-1 (checkmate, 64 plies)  |  9 games  +6 =0 -3  score 66.7%  Elo +120.4 [-221.2, +2400.0] (95%, pairs [1, 0, 1, 0, 2])  not clear
+[    174s] game 9: 1/2-1/2 (threefold repetition, 120 plies)  |  10 games  +6 =1 -3  score 65.0%  Elo +107.5 [-221.2, +2400.0] (95%, pairs [1, 0, 1, 0, 2])  not clear
+[    183s] game 5: 1/2-1/2 (threefold repetition, 185 plies)  |  11 games  +6 =2 -3  score 63.6%  Elo +97.2 [-129.3, +658.9] (95%, pairs [1, 0, 1, 1, 2])  not clear
+[    183s] game 15: 1-0 (checkmate, 61 plies)  |  12 games  +7 =2 -3  score 66.7%  Elo +120.4 [-129.3, +658.9] (95%, pairs [1, 0, 1, 1, 2])  not clear
+[    195s] game 17: 1-0 (checkmate, 61 plies)  |  13 games  +8 =2 -3  score 69.2%  Elo +140.9 [-129.3, +658.9] (95%, pairs [1, 0, 1, 1, 2])  not clear
+[    213s] game 13: 1-0 (checkmate, 129 plies)  |  14 games  +9 =2 -3  score 71.4%  Elo +159.2 [-129.3, +658.9] (95%, pairs [1, 0, 1, 1, 2])  not clear
+[    216s] game 20: 0-1 (checkmate, 34 plies)  |  15 games  +10 =2 -3  score 73.3%  Elo +175.7 [-129.3, +658.9] (95%, pairs [1, 0, 1, 1, 2])  not clear
+[    239s] game 19: 1/2-1/2 (threefold repetition, 58 plies)  |  16 games  +10 =3 -3  score 71.9%  Elo +163.0 [-76.4, +483.0] (95%, pairs [1, 0, 1, 2, 2])  not clear
+[    254s] game 10: 0-1 (checkmate, 180 plies)  |  17 games  +11 =3 -3  score 73.5%  Elo +177.5 [-40.5, +413.3] (95%, pairs [1, 0, 1, 3, 2])  not clear
+[    278s] game 14: 1/2-1/2 (threefold repetition, 179 plies)  |  18 games  +11 =4 -3  score 72.2%  Elo +166.0 [-14.0, +372.6] (95%, pairs [1, 0, 1, 4, 2])  not clear
+[    309s] game 23: 1-0 (checkmate, 95 plies)  |  19 games  +12 =4 -3  score 73.7%  Elo +178.9 [-14.0, +372.6] (95%, pairs [1, 0, 1, 4, 2])  not clear
+[    312s] game 22: 1-0 (checkmate, 99 plies)  |  20 games  +12 =4 -4  score 70.0%  Elo +147.2 [-14.0, +372.6] (95%, pairs [1, 0, 1, 4, 2])  not clear
+[    313s] game 26: 0-1 (checkmate, 36 plies)  |  21 games  +13 =4 -4  score 71.4%  Elo +159.2 [-14.0, +372.6] (95%, pairs [1, 0, 1, 4, 2])  not clear
+[    338s] game 16: 1/2-1/2 (fifty-move rule, 206 plies)  |  22 games  +13 =5 -4  score 70.5%  Elo +151.0 [+6.5, +345.3] (95%, pairs [1, 0, 1, 5, 2])  CLEAR WIN
+[    361s] game 30: 1-0 (checkmate, 25 plies)  |  23 games  +13 =5 -5  score 67.4%  Elo +126.1 [+6.5, +345.3] (95%, pairs [1, 0, 1, 5, 2])  CLEAR WIN
+[    365s] game 21: 1/2-1/2 (stalemate, 195 plies)  |  24 games  +13 =6 -5  score 66.7%  Elo +120.4 [-25.0, +282.9] (95%, pairs [1, 1, 1, 5, 2])  not clear
+[    380s] game 27: 1/2-1/2 (threefold repetition, 73 plies)  |  25 games  +13 =7 -5  score 66.0%  Elo +115.2 [-25.0, +282.9] (95%, pairs [1, 1, 1, 5, 2])  not clear
+[    384s] game 18: 1/2-1/2 (insufficient material, 204 plies)  |  26 games  +13 =8 -5  score 65.4%  Elo +110.5 [-7.5, +274.2] (95%, pairs [1, 1, 1, 6, 2])  not clear
+[    408s] game 24: 1-0 (checkmate, 175 plies)  |  27 games  +13 =8 -6  score 63.0%  Elo +92.2 [-8.3, +244.7] (95%, pairs [1, 1, 2, 6, 2])  not clear
+[    428s] game 31: 1-0 (checkmate, 73 plies)  |  28 games  +14 =8 -6  score 64.3%  Elo +102.1 [-8.3, +244.7] (95%, pairs [1, 1, 2, 6, 2])  not clear
+[    453s] game 33: 0-1 (checkmate, 74 plies)  |  29 games  +14 =8 -7  score 62.1%  Elo +85.6 [-8.3, +244.7] (95%, pairs [1, 1, 2, 6, 2])  not clear
+[    454s] game 32: 0-1 (checkmate, 88 plies)  |  30 games  +15 =8 -7  score 63.3%  Elo +94.9 [+13.0, +272.3] (95%, pairs [1, 1, 2, 6, 3])  CLEAR WIN
+[    455s] game 35: 1-0 (checkmate, 49 plies)  |  31 games  +16 =8 -7  score 64.5%  Elo +103.9 [+13.0, +272.3] (95%, pairs [1, 1, 2, 6, 3])  CLEAR WIN
+[    465s] game 28: 1-0 (checkmate, 141 plies)  |  32 games  +16 =8 -8  score 62.5%  Elo +88.7 [-7.9, +237.7] (95%, pairs [1, 2, 2, 6, 3])  not clear
+[    473s] game 34: 1-0 (checkmate, 81 plies)  |  33 games  +16 =8 -9  score 60.6%  Elo +74.8 [-45.6, +205.3] (95%, pairs [2, 2, 2, 6, 3])  not clear
+[    482s] game 29: 1-0 (checkmate, 161 plies)  |  34 games  +17 =8 -9  score 61.8%  Elo +83.3 [-43.1, +190.1] (95%, pairs [2, 2, 3, 6, 3])  not clear
+[    510s] game 40: 0-1 (checkmate, 46 plies)  |  35 games  +18 =8 -9  score 62.9%  Elo +91.4 [-43.1, +190.1] (95%, pairs [2, 2, 3, 6, 3])  not clear
+[    512s] game 38: 0-1 (checkmate, 58 plies)  |  36 games  +19 =8 -9  score 63.9%  Elo +99.1 [-43.1, +190.1] (95%, pairs [2, 2, 3, 6, 3])  not clear
+[    527s] game 41: 1-0 (checkmate, 51 plies)  |  37 games  +20 =8 -9  score 64.9%  Elo +106.5 [-43.1, +190.1] (95%, pairs [2, 2, 3, 6, 3])  not clear
+Exception ignored in: <_io.TextIOWrapper name=13 encoding='cp1252'>
+Traceback (most recent call last):
+  File "C:\Users\Emma\Documents\GitHub\cleanvibe-practice\crisp-golden-badger\match\runner.py", line 216, in run
+Exception ignored in: <_io.TextIOWrapper name=22 encoding='cp1252'>
+Traceback (most recent call last):
+  File "C:\Users\Emma\Documents\GitHub\cleanvibe-practice\crisp-golden-badger\match\runner.py", line 216, in run
+    with open(games_path) as f:
+OSError: [Errno 22] Invalid argument
+    with open(games_path) as f:
+OSError: [Errno 22] Invalid argument
+Exception ignored in: <_io.TextIOWrapper name=32 encoding='cp1252'>
+Traceback (most recent call last):
+Exception ignored in: <_io.TextIOWrapper name=24 encoding='cp1252'>
+  File "C:\Users\Emma\Documents\GitHub\cleanvibe-practice\crisp-golden-badger\match\runner.py", line 216, in run
+Traceback (most recent call last):
+  File "C:\Users\Emma\Documents\GitHub\cleanvibe-practice\crisp-golden-badger\match\runner.py", line 216, in run
+    with open(games_path) as f:
+OSError: [Errno 22] Invalid argument
+[    530s] game 36: 0-1 (time forfeit or crash, 90 plies)  |  38 games  +21 =8 -9  score 65.8%  Elo +113.6 [-24.7, +210.7] (95%, pairs [2, 2, 3, 6, 4])  not clear
+    with open(games_path) as f:
+OSError: [Errno 22] Invalid argument
+[    530s] game 25: 1-0 (time forfeit or crash, 247 plies)  |  39 games  +22 =8 -9  score 66.7%  Elo +120.4 [-7.9, +229.2] (95%, pairs [2, 2, 3, 6, 5])  not clear

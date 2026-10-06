@@ -1,8 +1,9 @@
 """Search: negamax alpha-beta with iterative deepening, a transposition
 table and quiescence search.
 
-Baseline move ordering: transposition-table move, then captures and
-promotions in generation order, then quiet moves.
+Move ordering: transposition-table move, then captures and promotions by
+MVV-LVA (most valuable victim, then least valuable attacker), then quiet
+moves.
 """
 import time
 
@@ -34,6 +35,13 @@ def score_from_tt(score, ply):
     if score < -MATE_BOUND:
         return score + ply
     return score
+
+
+def capture_key(board, m):
+    """MVV-LVA sort key (larger first); en passant counts as a pawn capture."""
+    v = board[(m >> 7) & 127]
+    a = board[m & 127]
+    return (v if v > 0 else -v or 1) * 10 - (a if a > 0 else -a) + ((m >> 14) & 7) * 10
 
 
 def uci_score(score):
@@ -134,6 +142,7 @@ class Searcher:
         best_move = 0
         alpha0 = alpha
         legal = 0
+        caps.sort(key=lambda m: capture_key(board, m), reverse=True)
         for m in first + caps + quiets:
             b.make(m)
             if b.attacked(kings[ki], -us):
@@ -169,7 +178,10 @@ class Searcher:
         us = b.side
         ki = 0 if us == WHITE else 1
         kings = b.kings
-        for m in b.gen_pseudo(True):
+        board = b.board
+        caps = b.gen_pseudo(True)
+        caps.sort(key=lambda m: capture_key(board, m), reverse=True)
+        for m in caps:
             b.make(m)
             if b.attacked(kings[ki], -us):
                 b.unmake()
