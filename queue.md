@@ -15,6 +15,7 @@ in `devlog.md` in the same commit.
    Written on branch `round04-history` (stacked on round 3); needs its match.
 5. Round 5: null-move pruning (R = 2, not in check, not in pawn-only
    endings).
+   Written on branch `round05-null-move` (stacked on round 4); needs its match.
 6. Round 6: principal variation search (null-window re-search).
 7. Round 7: late move reductions for late quiet moves.
 8. Round 8: tapered evaluation (endgame king table, phase by material).
