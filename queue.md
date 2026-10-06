@@ -17,6 +17,7 @@ in `devlog.md` in the same commit.
    endings).
    Written on branch `round05-null-move` (stacked on round 4); needs its match.
 6. Round 6: principal variation search (null-window re-search).
+   Written on branch `round06-pvs` (stacked on round 5); needs its match.
 7. Round 7: late move reductions for late quiet moves.
 8. Round 8: tapered evaluation (endgame king table, phase by material).
 9. Round 9 and on: pawn structure (passed, doubled, isolated pawns),
