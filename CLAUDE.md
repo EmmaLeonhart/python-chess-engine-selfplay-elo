@@ -203,6 +203,19 @@ hand.
 - `.claude/hooks/intent_staleness.py`: on each loop tick, tells you how long
   `INTENT.md` has gone without a commit, so you can tell whether it is due.
 
+## This project: layout and round procedure
+- `engine/`: the engine under development (board, evaluate, search, uci);
+  `chess_engine.py` is its UCI entry point. `engine/board.py` is also the
+  match referee, so any change to it must keep `python -m engine.perft 4`
+  passing.
+- `versions/vN/`: frozen engines; `versions/BEST` names the current best.
+- A round: change `engine/`, run
+  `python match/runner.py --candidate . --baseline versions/<BEST> --out results/roundNN`
+  (200 games, 1 s/move), and keep the change only if the 95% Elo interval's
+  lower end is above zero. If kept: `python match/snapshot.py vN` and update
+  `versions/BEST`. Either way, record the round in `results/` and the README.
+  A rejected change is reverted from `engine/`.
+
 ## Skills
 
 Workflow behaviors live as skills in `.claude/skills/` (auto-discovered by Claude Code):

@@ -31,3 +31,11 @@ Finished work, newest last.
   order, then quiets. UCI front end with a search thread (`engine/uci.py`,
   `chess_engine.py`). About 100k nodes/s; depth 4 from the opening in about
   0.35 s. 7 search/UCI tests added (27 total, passing).
+- Match tooling: `match/runner.py` (UCI subprocesses, 8 games in parallel
+  on the 8 physical cores, both colours per opening, rules-based endings,
+  400-ply draw cap, 5 s forfeit slack; writes games.jsonl as games finish,
+  so a match can resume), `match/stats.py` (score, Elo, 95% interval from
+  pair scores), `match/make_openings.py` and `match/openings.epd` (100
+  distinct 8-ply openings, engine-filtered to within 50 cp of equal, fixed
+  seed), `match/snapshot.py`. Version 0 frozen as `versions/v0`;
+  `versions/BEST` names the current best. 4 match tests (31 total).
