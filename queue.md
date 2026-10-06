@@ -10,6 +10,7 @@ in `devlog.md` in the same commit.
 2. Round 2: check extension (search one ply deeper when in check). Written
    and unit-tested on branch `round02-check-extension`; needs its match.
 3. Round 3: killer moves (two quiet moves per ply that caused a cutoff).
+   Written on branch `round03-killers` (stacked on round 2); needs its match.
 4. Round 4: history heuristic for the remaining quiet moves.
 5. Round 5: null-move pruning (R = 2, not in check, not in pawn-only
    endings).
