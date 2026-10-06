@@ -22,3 +22,12 @@ Finished work, newest last.
 - Tests (`tests/test_board.py`, 20 tests: perft at fast depths, FEN round
   trip, hash and unmake checked at every node to depth 2, repetition,
   insufficient material) and CI (`.github/workflows/ci.yml`).
+- Perft at depth 5 also matches: start position 4,865,609 (24.6 s),
+  position 3 674,624 (4.2 s).
+- Baseline engine (version 0): material + simplified piece-square tables
+  (`engine/evaluate.py`); negamax alpha-beta with iterative deepening,
+  transposition table (dict, mate-score adjusted) and quiescence search
+  (`engine/search.py`); ordering is TT move, then captures in generation
+  order, then quiets. UCI front end with a search thread (`engine/uci.py`,
+  `chess_engine.py`). About 100k nodes/s; depth 4 from the opening in about
+  0.35 s. 7 search/UCI tests added (27 total, passing).
