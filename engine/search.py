@@ -4,7 +4,8 @@ table and quiescence search.
 Move ordering: transposition-table move, then captures and promotions by
 MVV-LVA (most valuable victim, then least valuable attacker), then the two
 killer moves of this ply (quiet moves that last caused a cutoff here), then
-the other quiet moves. Check extension: one ply deeper when in check.
+the other quiet moves by history score (cutoffs they caused, weighted by
+depth squared, halved at each new search). Check extension: one ply deeper when in check.
 """
 import time
 
@@ -56,10 +57,12 @@ def uci_score(score):
 class Searcher:
     def __init__(self):
         self.tt = {}
+        self.history = [0] * 32768  # quiet-move cutoff credit by (side, from, to)
         self.stop = False  # set from another thread to abort
 
     def new_game(self):
         self.tt.clear()
+        self.history = [0] * 32768
 
     def search(self, board, movetime=None, max_depth=64, info=None):
         """Best move for `board`. `movetime` in seconds (None = until depth)."""
@@ -68,6 +71,7 @@ class Searcher:
         self.stop = False
         self.nodes = 0
         self.killers = [[0, 0] for _ in range(130)]
+        self.history = [h >> 1 for h in self.history]
         if len(self.tt) > TT_MAX:
             self.tt.clear()
         legal = board.legal_moves()
@@ -149,9 +153,12 @@ class Searcher:
         legal = 0
         caps.sort(key=lambda m: capture_key(board, m), reverse=True)
         k0, k1 = killers = self.killers[ply]
-        if k0 in quiets or k1 in quiets:
-            front = [k for k in (k0, k1) if k and k in quiets]
-            quiets = front + [m for m in quiets if m != k0 and m != k1]
+        hist = self.history
+        hside = 16384 if us == WHITE else 0
+        front = [k for k in (k0, k1) if k and k in quiets]
+        quiets = [m for m in quiets if m != k0 and m != k1]
+        quiets.sort(key=lambda m: hist[hside | (m & 16383)], reverse=True)
+        quiets = front + quiets
         for m in first + caps + quiets:
             b.make(m)
             if b.attacked(kings[ki], -us):
@@ -169,9 +176,11 @@ class Searcher:
                     alpha = score
                     if alpha >= beta:
                         if (not board[(m >> 7) & 127] and not (m >> 14) & 7
-                                and (m >> 17) != FLAG_EP and m != k0):
-                            killers[1] = k0
-                            killers[0] = m
+                                and (m >> 17) != FLAG_EP):
+                            hist[hside | (m & 16383)] += depth * depth
+                            if m != k0:
+                                killers[1] = k0
+                                killers[0] = m
                         break
         if not legal:
             return -MATE + ply if in_check else 0
