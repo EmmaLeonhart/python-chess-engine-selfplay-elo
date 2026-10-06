@@ -12,6 +12,7 @@ in `devlog.md` in the same commit.
 3. Round 3: killer moves (two quiet moves per ply that caused a cutoff).
    Written on branch `round03-killers` (stacked on round 2); needs its match.
 4. Round 4: history heuristic for the remaining quiet moves.
+   Written on branch `round04-history` (stacked on round 3); needs its match.
 5. Round 5: null-move pruning (R = 2, not in check, not in pawn-only
    endings).
 6. Round 6: principal variation search (null-window re-search).
