@@ -185,7 +185,14 @@ class Searcher:
                 b.unmake()
                 continue
             legal += 1
-            score = -self.negamax(b, depth - 1, -beta, -alpha, ply + 1)
+            if legal == 1:
+                score = -self.negamax(b, depth - 1, -beta, -alpha, ply + 1)
+            else:
+                # Principal variation search: prove the move is no better
+                # with a null window, re-search only if it is.
+                score = -self.negamax(b, depth - 1, -alpha - 1, -alpha, ply + 1)
+                if alpha < score < beta:
+                    score = -self.negamax(b, depth - 1, -beta, -alpha, ply + 1)
             b.unmake()
             if score > best:
                 best = score
