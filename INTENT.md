@@ -70,6 +70,11 @@ The brief says: "This is a long project; keep going after each round."
 - At 09:48 PST, 23 `python.exe` processes were still running, probably
   orphaned engine processes from the stopped match. Not killed: the user's
   instructions say not to stop running things unasked.
+- While round 1 waits, the changes for rounds 2-8 were written and
+  unit-tested on stacked branches (`round02-check-extension` through
+  `round08-tapered-eval`), none played yet. Writing more unplayed rounds
+  past eight adds rebase work for every one that a match rejects, so further
+  ticks stay idle until matches can run again.
 - If the user turns up, worth confirming the "clear margin" rule above.
 
 ## Confidence
