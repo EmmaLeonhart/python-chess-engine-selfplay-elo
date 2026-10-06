@@ -3,7 +3,8 @@
 Current concrete work, top first. Finished items are deleted here and logged
 in `devlog.md` in the same commit.
 
-1. Round 1 (running): MVV-LVA capture ordering vs v0. When it finishes:
+1. Round 1 (stopped at 39/200 by memory pressure; restart NEEDS-DECISION,
+   see INTENT.md): MVV-LVA capture ordering vs v0. When it finishes:
    write `results/round01/`, the README results table, and snapshot v1 if
    the 95% lower bound is above zero (otherwise revert `engine/search.py`).
 2. Round 2: check extension (search one ply deeper when in check). Written
