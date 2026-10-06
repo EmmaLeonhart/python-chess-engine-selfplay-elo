@@ -108,6 +108,9 @@ class Searcher:
             self.check_time()
         if ply and (b.halfmove >= 100 or b.is_repetition()):
             return 0
+        in_check = b.in_check()
+        if in_check:
+            depth += 1  # check extension
         if depth <= 0:
             return self.qsearch(b, alpha, beta, ply)
         key = b.hash
@@ -161,7 +164,7 @@ class Searcher:
                     if alpha >= beta:
                         break
         if not legal:
-            return -MATE + ply if b.in_check() else 0
+            return -MATE + ply if in_check else 0
         flag = LOWER if best >= beta else EXACT if best > alpha0 else UPPER
         self.tt[key] = (depth, flag, score_to_tt(best, ply), best_move)
         return best
