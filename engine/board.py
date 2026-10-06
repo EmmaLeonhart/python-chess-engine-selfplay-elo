@@ -407,7 +407,7 @@ class Board:
         if self.ep:
             h ^= ZEP[self.ep]
         self.ep = 0
-        self.halfmove += 1
+        self.halfmove = 0  # also stops repetition checks reaching across the null move
         self.side = -self.side
         self.hash = h ^ ZSIDE
 

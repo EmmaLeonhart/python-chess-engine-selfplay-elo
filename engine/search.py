@@ -17,6 +17,7 @@ MATE = 100_000
 MATE_BOUND = MATE - 1000  # scores beyond this are mates
 EXACT, LOWER, UPPER = 0, 1, 2
 TT_MAX = 1_000_000
+NULL_R = 2
 
 
 class Timeout(Exception):
@@ -104,6 +105,15 @@ class Searcher:
                 break
         return best
 
+    @staticmethod
+    def has_pieces(b):
+        """Does the side to move have a knight, bishop, rook or queen?"""
+        us = b.side
+        for p in b.board:
+            if p != 7 and 1 < p * us < 6:
+                return True
+        return False
+
     def check_time(self):
         if self.stop or time.perf_counter() > self.deadline:
             raise Timeout
@@ -133,6 +143,16 @@ class Searcher:
                 if eflag == UPPER and escore <= alpha:
                     return escore
         board = b.board
+        # Null-move pruning: if passing still fails high at reduced depth,
+        # a real move will too. Not in check, not twice in a row, and not
+        # without pieces (zugzwang in pawn endings).
+        if (ply and not in_check and depth >= 3 and beta < MATE_BOUND
+                and b.stack and b.stack[-1][0] and self.has_pieces(b)):
+            b.make_null()
+            score = -self.negamax(b, depth - 1 - NULL_R, -beta, -beta + 1, ply + 1)
+            b.unmake_null()
+            if score >= beta:
+                return beta
         moves = b.gen_pseudo()
         caps = []
         quiets = []
