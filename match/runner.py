@@ -17,6 +17,7 @@ import argparse
 import json
 import os
 import queue
+import shutil
 import subprocess
 import sys
 import threading
@@ -199,6 +200,16 @@ def main(argv=None):
 
     openings = load_openings(args.openings)
     os.makedirs(args.out, exist_ok=True)
+    # Play frozen copies, so editing engine/ while a match runs cannot change it.
+    frozen = os.path.join(ROOT, "scratch", "match_engines", os.path.basename(os.path.abspath(args.out)))
+    shutil.rmtree(frozen, ignore_errors=True)
+    for role in ("candidate", "baseline"):
+        src = os.path.abspath(getattr(args, role))
+        dst = os.path.join(frozen, role)
+        shutil.copytree(os.path.join(src, "engine"), os.path.join(dst, "engine"),
+                        ignore=shutil.ignore_patterns("__pycache__"))
+        shutil.copy(os.path.join(src, "chess_engine.py"), dst)
+    cand_dir, base_dir = os.path.join(frozen, "candidate"), os.path.join(frozen, "baseline")
     games_path = os.path.join(args.out, "games.jsonl")
     done = {}
     if os.path.exists(games_path):
@@ -213,8 +224,8 @@ def main(argv=None):
     print(f"{len(done)} games already recorded, {len(todo)} to play", flush=True)
 
     def run(i):
-        g = play_game(i, openings[(i // 2) % len(openings)], args.candidate,
-                      args.baseline, i % 2 == 0, args.movetime)
+        g = play_game(i, openings[(i // 2) % len(openings)], cand_dir,
+                      base_dir, i % 2 == 0, args.movetime)
         with lock:
             done[i] = g
             with open(games_path, "a") as f:
