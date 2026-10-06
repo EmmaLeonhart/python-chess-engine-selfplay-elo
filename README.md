@@ -14,8 +14,15 @@ search, then the match runner, then the improvement rounds.
 
 ## Results
 
-_No rounds played yet._ Each round will be listed here with what changed, the
-match score, and the Elo difference with its 95% error bar.
+Each round is listed with what changed, the match score, and the Elo
+difference with its 95% interval (from pair scores).
+
+| Round | Change | Games | Score | Elo [95%] | Kept |
+|---|---|---|---|---|---|
+| 1 | MVV-LVA capture ordering | 39 of 200 (stopped) | +22 =8 -9 (66.7%) | +120 [-8, +229] | pending |
+
+Round 1 stopped at 39 games when the machine ran short of memory; it
+resumes from `results/round01/games.jsonl` once restarted.
 
 ## Working on it
 
