@@ -180,6 +180,7 @@ class Searcher:
         quiets.sort(key=lambda m: hist[hside | (m & 16383)], reverse=True)
         quiets = front + quiets
         for m in first + caps + quiets:
+            quiet = not (board[(m >> 7) & 127] or (m >> 14) & 7 or (m >> 17) == FLAG_EP)
             b.make(m)
             if b.attacked(kings[ki], -us):
                 b.unmake()
@@ -188,9 +189,17 @@ class Searcher:
             if legal == 1:
                 score = -self.negamax(b, depth - 1, -beta, -alpha, ply + 1)
             else:
+                # Late move reduction: a late quiet move that does not give
+                # check is first searched one ply shallower.
+                if (legal > 3 and depth >= 3 and quiet and not in_check
+                        and m != k0 and m != k1 and not b.in_check()):
+                    score = -self.negamax(b, depth - 2, -alpha - 1, -alpha, ply + 1)
+                else:
+                    score = alpha + 1
                 # Principal variation search: prove the move is no better
                 # with a null window, re-search only if it is.
-                score = -self.negamax(b, depth - 1, -alpha - 1, -alpha, ply + 1)
+                if score > alpha:
+                    score = -self.negamax(b, depth - 1, -alpha - 1, -alpha, ply + 1)
                 if alpha < score < beta:
                     score = -self.negamax(b, depth - 1, -beta, -alpha, ply + 1)
             b.unmake()
