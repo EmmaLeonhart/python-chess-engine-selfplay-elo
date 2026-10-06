@@ -6,7 +6,8 @@ in `devlog.md` in the same commit.
 1. Round 1 (running): MVV-LVA capture ordering vs v0. When it finishes:
    write `results/round01/`, the README results table, and snapshot v1 if
    the 95% lower bound is above zero (otherwise revert `engine/search.py`).
-2. Round 2: check extension (search one ply deeper when in check).
+2. Round 2: check extension (search one ply deeper when in check). Written
+   and unit-tested on branch `round02-check-extension`; needs its match.
 3. Round 3: killer moves (two quiet moves per ply that caused a cutoff).
 4. Round 4: history heuristic for the remaining quiet moves.
 5. Round 5: null-move pruning (R = 2, not in check, not in pawn-only
