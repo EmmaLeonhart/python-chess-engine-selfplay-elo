@@ -1,5 +1,17 @@
 # Queue
 
+## ⛔ FIRST — STOP ALL CRON JOBS, THEN CONTINUE YOUR CURRENT TASK (Emma, 2026-10-06)
+
+Emma's instruction, relayed by the pc-manager session: **delete every cron job in this session
+now (`CronList`, then `CronDelete` each one), and do not create new ones.** Then carry on with
+whatever task you are in the middle of, to the end of that task. Too many sessions were running
+hourly loops at once and using her tokens all together. Only genealogy, ontology-harness and
+shintowiki-scripts keep their crons.
+
+This is not a stop order for your work, and it does not ask you to close the session. When your
+current task is done, wait for Emma rather than refilling the queue on your own. Delete this
+item once the crons are gone, and note in the devlog that you did it.
+
 Current concrete work, top first. Finished items are deleted here and logged
 in `devlog.md` in the same commit.
 

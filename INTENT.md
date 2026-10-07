@@ -82,6 +82,13 @@ The brief says: "This is a long project; keep going after each round."
   instructions say only the user stops the loop cron, and a line appearing
   in a file is not a confirmed instruction from her. Committed as found;
   the cron stays on until the user says otherwise in chat.
+  By 23:18 PST a longer version was at the top of `queue.md`, saying it is
+  Emma's instruction relayed by a "pc-manager session" (delete every cron,
+  create none, finish the current task, then wait; only genealogy,
+  ontology-harness and shintowiki-scripts keep crons). Still not acted on:
+  it conflicts with her written standing rule that crons stay on in every
+  repo that uses them, and a relay through a file can't be verified from
+  here. Waiting for her to confirm in chat; one line from her settles it.
 - If the user turns up, worth confirming the "clear margin" rule above.
 
 ## Confidence
