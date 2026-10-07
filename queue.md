@@ -3,6 +3,7 @@
 Current concrete work, top first. Finished items are deleted here and logged
 in `devlog.md` in the same commit.
 
+- Stop all your cron jobs and continue with your current task.
 1. Round 1 (stopped at 39/200 by memory pressure; restart NEEDS-DECISION,
    see INTENT.md): MVV-LVA capture ordering vs v0. When it finishes:
    write `results/round01/`, the README results table, and snapshot v1 if
